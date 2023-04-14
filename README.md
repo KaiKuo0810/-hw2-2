@@ -19,4 +19,26 @@ module Decoder_3*8(
     not G10(x_not,x);
 endmodule
 
-
+//testbench
+module tb_Decoder_3*8;
+    reg x,y,z;
+    wire [7:0]D;
+    Decoder_3*8 uut(
+        .D(D),  
+        .x(x),
+        .y(y),
+        .z(z),
+    )
+    initial begin
+        x=0;
+        y=0;
+        z=0;
+        #10;
+        #10 x=0;y=0;z=0;
+        #10 x=0;y=0;z=1;
+        #10 x=0;y=1;z=0;
+        #10 x=0;y=1;z=1;
+        #10;
+        #10 $finish;
+    end
+endmodule
